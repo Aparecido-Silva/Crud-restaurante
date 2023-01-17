@@ -9,7 +9,7 @@ const sequelize = new Sequelize('bd_login', 'root', '@Aparecido12', {
     .then(() => {
         console.log("Conexação realizada com sucesso!");
     }).catch(() => {
-        console.log("Erro!");
+        console.log("Conexação não realizada com sucesso!");
     });
 
   module.exports = sequelize;

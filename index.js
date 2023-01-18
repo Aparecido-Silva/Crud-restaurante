@@ -1,1 +1,1 @@
-const db = require('./models/db');
+const user =  require('./models/user');

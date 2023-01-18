@@ -13,3 +13,9 @@ const sequelize = new Sequelize('bd_login', 'root', '@Aparecido12', {
     });
 
   module.exports = sequelize;
+
+  function login() {
+    const nome = document.querySelector('#nome').value
+    const email = document.querySelector('#email').value
+    const senha = document.querySelector('#senha').value
+  }

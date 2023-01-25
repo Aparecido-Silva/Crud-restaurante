@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="./models/index.js"></script>
-    <title>Faça seu cadatro</title>
+    <title>Faça seu login</title>
 </head>
 <body>
     <main>
@@ -15,19 +15,19 @@
                 <div class="left-logo"><p>Untitled UI</p></div>
                 <div class="div-form-login">
                     <div class="div-form">
-                        <h1>Create an account</h1>
-                        <p>Start yout 30-day free trial. No credit card.</p>
-                        <form action="/cadastro" method="post" class="left-form">
-                            <input type="text" name="nome" id="nome" placeholder="Name" required>
+                        <h1>Faça seu login</h1>
+                        <p>Comece sua avaliação gratuita de 30 dias. Nenhum cartão de crédito.</p>
+                        <form action="/login" method="post" class="left-form">
                             <input type="email" name="email" id="email" placeholder="Email" required>
-                            <input type="password" name="senha" id="senha" placeholder="Password" required>
-                            <input type="submit" value="Create account" class="btn-create" id="button-create" onclick="teste()">
+                            <input type="password" name="senha" id="senha" placeholder="Senha" required>
+                            <fieldset class="form-forgot"><a href="#">Esqueceu a senha?</a></fieldset>
+                            <input type="submit" value="Login" class="btn-create" id="button-create">
                         </form>
                         <div class="div-login">
                             <a href="#" class="btn-google">
-                                <img class="logo-google" src="./google.svg" alt="Logo do google"><p>Sing up wiht Google</p>
+                                <img class="logo-google" src="./google.svg" alt="Logo do google"><p>Inscreva-se com o Google</p>
                             </a>
-                            <p>Don't have an account?<strong> <a href="#">Sing up</a></strong></p>
+                            <p>Já tem uma conta?<strong> <a href="/Site-cadastro/index.html" target="_blank">Cadastra-se</a></strong></p>
                         </div>
                     </div>
                 </div>

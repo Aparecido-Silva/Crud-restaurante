@@ -19,13 +19,21 @@ app.listen(port,() => {
 
 //Passando meus arquivos para o node
 app.use(express.static(path.join(__dirname,("Site-cadastro"))))
+app.use(express.static(path.join(__dirname,("Site-login"))))
 
 
-//Rotas Servidor: http://localhost:2020/
+//Rotas - Servidor: http://localhost:2020/
 app.get("/", function (res, res) {
-    res.sendFile(__dirname + "/Site-cadastro/index.html");
+    res.sendFile(__dirname + "/Site-login/login.html")
 });
 
+app.get("/cadastrar", function (req, res) {
+    res.sendFile(__dirname + "/Site-cadastro/index.html")
+});
+
+app.get("/login", function (req, res) {
+    res.sendFile(__dirname + "/Site-login/index.html")
+});
 
 
 //Body Parser
@@ -40,7 +48,7 @@ app.post("/cadastro", function (req, res) {
         email:req.body.email, 
         senha: req.body.senha
     }).then(function() {
-        res.send("Usuário cadastrado com sucesso!")
+        res.redirect("/restaurante")
     }).catch(function() {
         res.send("Não foi possivel cadastrar o usuário! Houve um erro:" + error)
     })

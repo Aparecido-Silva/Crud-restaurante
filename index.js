@@ -18,8 +18,9 @@ app.listen(port,() => {
 
 
 //Passando meus arquivos para o node
-app.use(express.static(path.join(__dirname,("Site-cadastro"))))
 app.use(express.static(path.join(__dirname,("Site-login"))))
+
+app.use(express.static(path.join(__dirname,("Site-cadastro"))))
 
 
 //Rotas - Servidor: http://localhost:2020/
@@ -53,4 +54,6 @@ app.post("/cadastro", function (req, res) {
         res.send("Não foi possivel cadastrar o usuário! Houve um erro:" + error)
     })
 })
+
+
 

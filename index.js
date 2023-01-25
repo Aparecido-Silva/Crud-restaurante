@@ -5,9 +5,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 
+
 const app = express()
 const http = require('node:http');
-const { error } = require('console');
 const port = 2020;
 const server = http.createServer();
 
@@ -32,9 +32,6 @@ app.get("/cadastrar", function (req, res) {
     res.sendFile(__dirname + "/Site-cadastro/index.html")
 });
 
-app.get("/login", function (req, res) {
-    res.sendFile(__dirname + "/Site-login/index.html")
-});
 
 
 //Body Parser
@@ -49,11 +46,11 @@ app.post("/cadastro", function (req, res) {
         email:req.body.email, 
         senha: req.body.senha
     }).then(function() {
-        res.redirect("/restaurante")
+        res.redirect("/")
     }).catch(function() {
         res.send("Não foi possivel cadastrar o usuário! Houve um erro:" + error)
     })
 })
 
-
+//Login usuário
 

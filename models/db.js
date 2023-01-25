@@ -14,3 +14,4 @@ const sequelize = new Sequelize('bd_login', 'root', '@Aparecido12', {
     });
 
   module.exports = sequelize;
+

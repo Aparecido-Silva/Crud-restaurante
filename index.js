@@ -1,19 +1,21 @@
 const user = require('./models/user');
 const db = require('./models/db');
 
+const mysql = require('mysql2');
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-
+const passport = require('passport-local').Strategy
 
 const app = express()
 const http = require('node:http');
+
+//Servidor
 const port = 2020;
 const server = http.createServer();
 
-
 app.listen(port,() => {
-    //console.log("Servidor criado com sucesso!");
+    console.log("Servidor iniciado na porta: http://localhost:2020/")
 });
 
 
@@ -46,7 +48,7 @@ app.post("/cadastro", function (req, res) {
         email:req.body.email, 
         senha: req.body.senha
     }).then(function() {
-        res.redirect("/")
+        res.redirect("/") //tela de login
     }).catch(function() {
         res.send("Não foi possivel cadastrar o usuário! Houve um erro:" + error)
     })

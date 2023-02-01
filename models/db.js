@@ -1,7 +1,7 @@
 //Conexão com bando de dados
 const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize('tb_login', 'root', '@Aparecido12', {
+const sequelize = new Sequelize('db_usuario', 'root', '@Aparecido12', {
     host: 'localhost',
     dialect:'mysql'
   });

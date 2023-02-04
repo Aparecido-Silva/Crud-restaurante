@@ -74,10 +74,7 @@ app.post("/", async (req, res) => {
     });
 
     if (User === null) {
-        return res.status(400).json({
-            erro: true,
-            mensagem: "Erro: Usuário ou a senha incorreta! "
-        });
+        res.send("Erro: Usuário ou senha incorreta!")
     };
 
     if (req.body.senha === User.senha) {

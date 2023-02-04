@@ -3,7 +3,6 @@ const user = require('./models/user');
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-const passport = require('passport-local').Strategy
 
 const app = express()
 const http = require('node:http');
@@ -43,23 +42,28 @@ app.get("/teste", function (res, res) {
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
-
 //Criando usuário
+
 app.post("/cadastro", function (req, res) {
-    user.create({
-        nome:req.body.nome,
-        email:req.body.email, 
-        senha: req.body.senha
-    }).then(function() {
-        res.redirect("/") //tela de login
-    }).catch(function() {
-        res.send("Não foi possivel cadastrar o usuário! Houve um erro:" + error)
+    const dados = user;
+    user.findOne({
+        email: req.body.email
+    }).then((user) => {
+        if (user === null) {
+            dados.create({
+                nome:req.body.nome,
+                email:req.body.email, 
+                senha: req.body.senha
+            })
+        }else{
+            res.redirect('/')
+        }
     })
 })
 
 //Login usuário
 
-app.post('/', async (req, res) => {
+app.post("/", async (req, res) => {
 
     const User = await user.findOne({
         attributes: ['email', 'senha'],
@@ -69,13 +73,6 @@ app.post('/', async (req, res) => {
         }
     });
 
-    if(User === null){
-        return res.status(400).json({
-            erro: true,
-            mensagem: "Erro: Usuário ou a senha incorreta! "
-        });
-    };
-
     if (User === null) {
         return res.status(400).json({
             erro: true,
@@ -84,6 +81,6 @@ app.post('/', async (req, res) => {
     };
 
     if (req.body.senha === User.senha) {
-        return res.redirect('/cadastrar')
+        return res.redirect('/teste')
     }
 });

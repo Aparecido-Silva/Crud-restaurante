@@ -142,10 +142,11 @@ main{
 
 .div-login > a p{
     font-weight: 600;
+    margin: 0;
 }
 
 .logo-google{
-    width: 1vw;
+    width: 1.1vw;
 }
 
 .div-login .btn-google{
@@ -204,4 +205,8 @@ main{
     height: 100%;
     object-fit: cover;
     
+}
+
+.alert{
+    display: none;
 }

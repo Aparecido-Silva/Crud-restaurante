@@ -125,6 +125,7 @@ main{
 
 .div-login > a p{
     font-weight: 600;
+    margin: 0;
 }
 
 .logo-google{

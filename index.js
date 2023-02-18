@@ -65,6 +65,7 @@ app.post("/cadastro", function (req, res) {
 
 app.post("/", async (req, res) => {
 
+
     const User = await user.findOne({
         attributes: ['email', 'senha'],
         where: {
@@ -81,3 +82,6 @@ app.post("/", async (req, res) => {
         return res.redirect('/teste')
     }
 });
+
+
+//Alertas de validações
